@@ -24,9 +24,9 @@ no wallet · no signature · nothing to connect
 
 <br>
 
-**$REKT** · boarding soon, no contract address yet
+**$REKT** · `0xa596071ff217204cdb74b2bd94ac8dd79ee97082`
 
-<sub>When there is one it will be printed here and on every page of the site. Anything claiming to be $REKT before that is not ours.</sub>
+<sub>This is the only $REKT contract. Every other address carrying this name is not ours.</sub>
 
 <br>
 
