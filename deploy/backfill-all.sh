@@ -26,7 +26,7 @@ wait_for_watcher() {
     LAG=$(curl -s --max-time 10 "http://127.0.0.1:${PORT:-8787}/api/health" \
       | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(Math.round(JSON.parse(s).lagSeconds))}catch{console.log(99999)}})' 2>/dev/null || echo 99999)
     case "$LAG" in ''|*[!0-9]*) LAG=99999 ;; esac
-    [ "$LAG" -le "${WAIT_LAG_S:-300}" ] && return 0
+    [ "$LAG" -le "${WAIT_LAG_S:-90}" ] && return 0
     echo "waiting for the watcher: ${LAG}s behind the chain"
     sleep 60
   done

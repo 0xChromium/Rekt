@@ -26,7 +26,9 @@ ExecStart=/bin/sh /home/rekt/rekt/deploy/backfill-all.sh
 # Every chunk is checkpointed, so a restart resumes and loses at most one chunk. It stops for good
 # when the record is whole: that is a success, not something to restart.
 Restart=on-failure
-RestartSec=30
+# Five minutes, not thirty seconds: a crash here is almost always the endpoint throttling, and a
+# quick restart hits the same limit again while the watcher is still trying to get through it.
+RestartSec=300
 # It shares the logs endpoint with the watcher, which must keep up, so it runs at low priority.
 
 StandardOutput=append:/home/rekt/rekt/data/logs/backfill.log

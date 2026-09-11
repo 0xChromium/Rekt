@@ -39,7 +39,21 @@ import("./src/db.ts").then((m) => { const db = m.openDb(); console.log(m.getMeta
 ' "$1"
 }
 
+# Yields to the watcher before every slice, not only between depths. The site calls the watcher
+# unhealthy at 120 s behind; this stops at 90 so the pair of them never get there together.
+wait_for_watcher() {
+  while true; do
+    LAG=$(curl -s --max-time 10 "http://127.0.0.1:${PORT:-8787}/api/health" \
+      | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(Math.round(JSON.parse(s).lagSeconds))}catch{console.log(99999)}})' 2>/dev/null || echo 99999)
+    case "$LAG" in ''|*[!0-9]*) LAG=99999 ;; esac
+    [ "$LAG" -le "${WAIT_LAG_S:-90}" ] && return 0
+    echo "waiting for the watcher: ${LAG}s behind the chain"
+    sleep 30
+  done
+}
+
 while true; do
+  wait_for_watcher
   START="$(meta "$FROM_KEY")"
   [ -n "$START" ] || { echo "no cursor for $FROM_KEY yet; run the forward pass first" >&2; exit 1; }
   if [ "$START" -le "$V2_START" ]; then echo "$WHAT: the record reaches $V2_START already"; exit 0; fi

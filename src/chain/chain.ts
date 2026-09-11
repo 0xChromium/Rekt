@@ -50,22 +50,34 @@ const headers = { "user-agent": "rekt/0.1 (+https://rekt.report)" };
  * Retries throttling and transient network errors with exponential backoff; surfaces everything else.
  * A 403 is the official RPC cooling off after a long sweep, so it gets a slower backoff than a 429.
  */
+/**
+ * Retries a call the endpoint refused or dropped.
+ *
+ * A refusal for rate (429, or the 403 the endpoint uses for the same thing) is not a fault to
+ * retry quickly: it is the endpoint asking for less, and answering it with six tries in twenty-five
+ * seconds is asking for more. Those wait long and are given many tries, up to about ten minutes
+ * of patience in total, because the alternative was the backfill dying on the sixth try, systemd
+ * starting it again thirty seconds later, and the watcher, which shares the endpoint, starved by
+ * the pair of them for as long as the provider kept throttling.
+ */
+export const THROTTLE_TRIES = 12;
+export const isThrottle = (msg: string): boolean => /Status:\s*403|\bForbidden\b|\b429\b|Too Many Requests/i.test(msg);
+
 export async function withRetry<T>(fn: () => Promise<T>, tries = 6, base = 800): Promise<T> {
   let last: unknown;
-  for (let i = 0; i < tries; i++) {
+  for (let i = 0; ; i++) {
     try {
       return await gate.run(fn);
     } catch (err) {
       last = err;
       const msg = String((err as Error)?.message ?? err);
-      const throttled = /Status:\s*403|\bForbidden\b/i.test(msg);
-      const retryable = throttled ||
-        /429|Too Many Requests|timeout|timed out|ETIMEDOUT|ECONNRESET|fetch failed|socket/i.test(msg);
-      if (!retryable || i === tries - 1) throw err;
+      const throttled = isThrottle(msg);
+      const retryable = throttled || /timeout|timed out|ETIMEDOUT|ECONNRESET|fetch failed|socket/i.test(msg);
+      const limit = throttled ? Math.max(tries, THROTTLE_TRIES) : tries;
+      if (!retryable || i >= limit - 1) throw err;
       await sleep(throttled ? Math.min(60_000, 5_000 * 2 ** i) : base * 2 ** i);
     }
   }
-  throw last;
 }
 
 /** Contract reads, transactions, receipts. Concurrent reads are batched into one multicall. */
