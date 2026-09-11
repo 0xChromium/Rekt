@@ -6,7 +6,8 @@ import { getMeta, now, openDb, rollbackFrom, setMeta } from "./db.ts";
 import { enrichOne } from "./enrich.ts";
 import { curveMap, foldCursor, foldRange, FOLD_CHUNK, FOLD_MIN_CHUNK, isRangeError, type Applied, type CurveInfo, type DecodedTrade } from "./fold.ts";
 import { backfillRange, FACTORY_TOPICS, writeFactoryLogs } from "./ingest.ts";
-import { foldPoolRange, poolFoldCursor, POOL_CHUNK, poolMap } from "./poolfold.ts";
+import { resolvePoolsSweep } from "./chain/pool.ts";
+import { foldPoolRange, poolFoldCursor, POOL_CHUNK, POOL_INIT_CURSOR, poolMap, type PoolInfo } from "./poolfold.ts";
 import { detectLoss } from "./losses.ts";
 import { refreshPrices, usdOf } from "./prices.ts";
 import { backfillQuoteAssets, quoteMap, resolveQuote, type QuoteAsset } from "./quote.ts";
@@ -348,10 +349,42 @@ async function poolLoop(): Promise<void> {
         + `cursor ${poolTo.toLocaleString()} (${((head?.number ?? poolTo) - poolTo)} behind)`);
       poolPending = { folded: 0, matched: 0, unresolved: 0, smart: 0, passes: 0 };
       lastPoolLog = Date.now();
-      // New graduations arrive every few minutes; a pool missing from the map is a swap dropped.
-      pools = poolMap(db);
+      pools = await adoptNewPools(pools);
     }
     await sleep(to >= limit ? Math.max(CFG.pollMs, CFG.logsSpacingMs) : CFG.logsSpacingMs);
+  }
+}
+
+/**
+ * Pools the chain opened since the last sweep, adopted into the map, with the swaps they made
+ * before anybody knew them folded late.
+ *
+ * A pool missing from the map is a swap dropped, silently. The map was reloaded from the pools
+ * table every few seconds, but nothing added to that table between manual runs of `pools --init`:
+ * on launch day the sweep found 407 pools the watcher had never heard of, one of them ours, and
+ * fifty thousand swaps that no report and no leaderboard had counted. Initialize logs are rare,
+ * so one read per pass finds them; the swaps a new pool made between its opening and this pass
+ * are folded for that pool alone, cursors untouched, since positions are sums and those blocks
+ * were folded without it.
+ */
+async function adoptNewPools(current: Map<string, PoolInfo>): Promise<Map<string, PoolInfo>> {
+  const swept = Number(getMeta(db, POOL_INIT_CURSOR) ?? NaN);
+  const from = Number.isFinite(swept) ? swept + 1 : Math.max(0, poolTo - 3_000);
+  if (poolTo < from) return current;
+  try {
+    const st = await resolvePoolsSweep(db, from, poolTo, { chunk: 100_000 });
+    setMeta(db, POOL_INIT_CURSOR, String(poolTo));
+    if (!st.found) return current;
+    const next = poolMap(db);
+    const fresh = new Map([...next].filter(([id]) => !current.has(id)));
+    if (fresh.size) {
+      const r = await foldPoolRange(db, from, poolTo, { pools: fresh, clock, onTrade, checkpoint: false, cursorKey: "pool_late_scratch" });
+      log(`pools: ${fresh.size} new pool(s) opened since ${from.toLocaleString()}; ${r.folded} of their swaps folded late`);
+    }
+    return next;
+  } catch (err) {
+    log(`pools: sweep for new pools failed (${oneLine(err)}); the map stands`);
+    return current;
   }
 }
 
