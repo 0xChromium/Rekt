@@ -1,0 +1,29 @@
+{
+  "lagBlocks": 118,
+  "lagSeconds": 11.9,
+  "watcherAgeSeconds": 2,
+  "foldCursor": 59003491,
+  "latestBlock": 59003609,
+  "ok": true,
+  "records": {
+    "curve": {
+      "fromBlock": 27176459,
+      "toBlock": 59440000,
+      "days": 37.7,
+      "missingDays": 0,
+      "complete": true,
+      "extendingDays": 0
+    },
+    "pools": {
+      "fromBlock": 27176459,
+      "toBlock": 59440000,
+      "days": 37.7,
+      "missingDays": 0,
+      "complete": true,
+      "extendingDays": 0
+    },
+    "v2StartBlock": 27176459,
+    "complete": true,
+    "missing": null
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="44" viewBox="0 0 148 44" role="img" aria-label="REKT">
+  <title>REKT</title>
+  <g font-family="Barlow Condensed, Arial Narrow, Impact, sans-serif" font-weight="800" font-size="34" fill="#F5B400" text-anchor="middle">
+    <rect x="0" y="0" width="34" height="44" rx="3" fill="#1B1F24"/><text x="17" y="34">R</text>
+    <rect x="38" y="0" width="34" height="44" rx="3" fill="#1B1F24"/><text x="55" y="34">E</text>
+    <rect x="76" y="0" width="34" height="44" rx="3" fill="#1B1F24"/><text x="93" y="34">K</text>
+    <rect x="114" y="0" width="34" height="44" rx="3" fill="#1B1F24"/><text x="131" y="34">T</text>
+  </g>
+  <g fill="#000" fill-opacity="0.8">
+    <rect x="0" y="21.25" width="34" height="1.5"/><rect x="38" y="21.25" width="34" height="1.5"/>
+    <rect x="76" y="21.25" width="34" height="1.5"/><rect x="114" y="21.25" width="34" height="1.5"/>
+  </g>
+</svg>

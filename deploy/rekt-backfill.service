@@ -1,0 +1,46 @@
+[Unit]
+Description=rekt-backfill: fills the record backwards to the Pons v2 start, then stops
+Documentation=file:///home/rekt/rekt/deploy/README.md
+After=network-online.target rekt-watch.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=rekt
+Group=rekt
+WorkingDirectory=/home/rekt/rekt
+EnvironmentFile=/home/rekt/rekt/.env
+Environment=NODE_ENV=production
+Environment=TX_LANES=4
+# Background work: the live watcher and the site come first, and both share this machine and the
+# one endpoint that serves logs. Low priority, few lanes, and the spacing the watcher expects.
+Nice=15
+CPUWeight=20
+IOSchedulingClass=idle
+# Depths, in days, reached in order and by both streams before either goes deeper. Each is a
+# usable state; the list ends at the whole history.
+# Quoted: systemd splits an unquoted value at the first space and the rest is lost, which
+# silently turned "7 10 12" into a single depth of seven days.
+Environment="BACKFILL_STEPS=7 10 14 21 37"
+ExecStart=/bin/sh /home/rekt/rekt/deploy/backfill-all.sh
+# Every chunk is checkpointed, so a restart resumes and loses at most one chunk. It stops for good
+# when the record is whole: that is a success, not something to restart.
+Restart=on-failure
+RestartSec=30
+# It shares the logs endpoint with the watcher, which must keep up, so it runs at low priority.
+
+StandardOutput=append:/home/rekt/rekt/data/logs/backfill.log
+StandardError=append:/home/rekt/rekt/data/logs/backfill.log
+SyslogIdentifier=rekt-backfill
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/rekt/rekt/data
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

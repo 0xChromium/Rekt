@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compensation desk · REKT</title>
+<meta name="description" content="Half of every creator fee $REKT earns goes to holders who stake, from the block the splitter becomes the recipient. The fee wallet, what has accrued, the ledger and the contract status.">
+<meta property="og:title" content="Compensation desk · REKT">
+<meta property="og:description" content="Half of every creator fee $REKT earns goes to holders who stake, from the block the splitter becomes the recipient. On-chain, checkable.">
+<meta property="og:image" content="https://rekt.report/og.png">
+<meta property="og:url" content="https://rekt.report/desk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rekt.report/og.png">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Compensation desk</span>
+  <span class="sub">REKT · open</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main class="page">
+  <div class="k">The rule</div>
+  <h1>Compensation desk open.</h1>
+  <p class="rule">Half of every creator fee $REKT earns goes to holders who stake, starting the moment the splitter contract becomes the fee recipient. What the token earns before that transaction pays for building it and is the team's. The switch is one transaction on the Pons factory, so anyone can see the exact block the rule starts at. After it, only the factory owner could move the recipient, with a three-day timelock.</p>
+
+  <h2>Where the fees are</h2>
+  <div class="stats" id="deskStats">
+    <div class="stat"><span>Fee recipient</span><b id="dRecipient" class="addr">—</b><i id="dRecipientKind">reading</i></div>
+    <div class="stat"><span>Accrued in escrow</span><b id="dAccrued">—</b><i id="dAccruedUsd">earned, not yet claimed</i></div>
+    <div class="stat"><span>In the wallet</span><b id="dWallet">—</b><i>claimed and unspent</i></div>
+    <div class="stat"><span>Holders' half</span><b id="dHalf" class="green">—</b><i id="dHalfNote">the rule starts when the splitter is the recipient</i></div>
+  </div>
+  <p id="dRecipientLine" class="dim">The recipient is read from the Pons factory for $REKT. Before launch there is nothing to read.</p>
+
+  <h2>Contract status <span class="pill in-progress" id="dStatus">reading</span></h2>
+  <p id="dContracts">The splitter and staking contracts are being built. Until they are live the fee wallet is the recipient and nothing is paid out to anyone. <a href="https://github.com/0xChromium/Rekt" id="dRepo" target="_blank" rel="noopener">Repository</a> · <a href="/roadmap" data-href="/roadmap">Roadmap item 0</a>.</p>
+
+  <div class="wallet-panel" id="walletPanel" hidden>
+    <div class="k">Passenger wallet</div>
+    <p>This is the only page that ever asks for a wallet. Harvest is permissionless: anyone may call it, the split is fixed in the contract.</p>
+    <div class="row">
+      <button class="btn" type="button" id="wConnect">Connect wallet</button>
+      <button class="btn ghost" type="button" id="wHarvest">Harvest</button>
+      <span class="wallet-msg" id="wAccount"></span>
+    </div>
+    <div class="row">
+      <input type="text" id="wAmount" placeholder="REKT amount" inputmode="decimal" aria-label="Amount">
+      <button class="btn ghost" type="button" id="wApprove">Approve</button>
+      <button class="btn ghost" type="button" id="wStake">Stake</button>
+      <button class="btn ghost" type="button" id="wUnstake">Unstake</button>
+      <button class="btn ghost" type="button" id="wClaim">Claim rewards</button>
+    </div>
+    <div class="wallet-msg" id="wMsg"></div>
+  </div>
+
+  <h2>Ledger</h2>
+  <div class="table-wrap"><table class="lb ledger" id="ledger">
+    <thead><tr><th>Date</th><th>Transaction</th><th class="r">Amount</th><th class="r">Recipients</th></tr></thead>
+    <tbody><tr><td class="empty-row" colspan="4">first distribution: after the splitter is the recipient</td></tr></tbody>
+  </table></div>
+
+  <h2>Notices</h2>
+  <p class="notice" id="geo">If a distribution is ever paid in stock tokens (NVDA stock tokens, not shares), it is not available to passengers in the United States, Canada, the United Kingdom or Switzerland. Nothing on this page is a payout tied to losses, a refund or a prize. Never an APR.</p>
+  <p class="dim" style="margin-top:12px;font-size:13px">Every figure here is read from the chain and the price book, approximate in dollars, exact in wei. Nothing on this page accrues for holders before the splitter is the recipient, and the page says so until it is.</p>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module" src="/static/app/desk.js"></script>
+</body>
+</html>

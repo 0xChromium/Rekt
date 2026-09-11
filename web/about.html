@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · REKT</title>
+<meta name="description" content="How rekt.report reads Robinhood Chain, what the numbers mean, and what they do not.">
+<meta property="og:title" content="About · REKT">
+<meta property="og:description" content="67% of Robinhood Chain traders lost money. Find out how much you contributed.">
+<meta property="og:image" content="https://rekt.report/og.png">
+<meta property="og:url" content="https://rekt.report/about">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rekt.report/og.png">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Information</span>
+  <span class="sub">REKT · about this terminal</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main class="page narrow">
+  <section class="wrap" id="records" hidden>
+    <div class="k">How deep the record is</div>
+    <p id="recordsLine">Reading.</p>
+  </section>
+
+  <div class="k">About</div>
+  <h1>67% of Robinhood Chain traders lost money. Find out how much you contributed.</h1>
+  <p class="lede">rekt.report is the loss ledger of Robinhood Chain. Paste any address and get a boarding pass: how much it lost on Pons, on what, to whom, and where it ranks. Now boarding: everyone. Destination: zero. On time.</p>
+
+  <h2>How it works</h2>
+  <ul>
+    <li><b>Boarding.</b> Every token launched on the Pons v2 factory is a flight. We read the launch, the graduation and every buy and sell on its bonding curve, chain-wide, as it happens, from the public RPC.</li>
+    <li><b>The flight.</b> A wallet's buys and sells fold into one position per token. Realized result = what you sold for, less what you paid for the part you sold: <code>quote_out − quote_in × min(1, tokens_out / tokens_in)</code>. Bags still held are valued separately and marked approximate.</li>
+    <li><b>The pass.</b> Net realized result across every position, converted to dollars with the daily price book; rank among wallets with three or more trades; class by percentile; worst flight and the airline that flew it; badges; and how many other passengers never arrived on the same flight.</li>
+    <li><b>The board.</b> A token is <span class="amber">boarding</span> from launch, <span class="green">arrived</span> when it graduates to the pool, <span class="amber">departed</span> after ten minutes without a trade at a price at or below a tenth of its peak, and <span class="red">cancelled</span> when that happens inside the first ten minutes.</li>
+    <li><b>Turbulence.</b> Over a rolling 24 hours, W is the share of wallets that traded and ended negative, D the share of launches that departed or were cancelled; the index is round(100 × (0.6 W + 0.4 D)). <a href="/turbulence" data-href="/turbulence">Method and today's reading</a>.</li>
+  </ul>
+
+  <h2>Disclaimers</h2>
+  <ul>
+    <li>Dollar figures are approximate. Every quote asset is converted with a price book refreshed about hourly; positions in an asset we cannot price are left out and counted separately.</li>
+    <li>Curve trades only, for now. Trades on the Uniswap v4 pool after graduation are not folded yet; they are on the roadmap.</li>
+    <li>Records begin at the first folded block, stated on every pass. Older history extends backwards as the fold catches up.</li>
+    <li>None of this is financial advice, a recommendation, or an invitation to trade anything.</li>
+    <li>No payouts are tied to losses. There are no refunds and no prizes. The compensation desk pays a share of $REKT's creator fees to holders who stake, and nothing else. <a href="/desk" data-href="/desk">The rule, verbatim</a>.</li>
+    <li>Addresses are wallets, not people. We name no one. Addresses are shown truncated and link to Blockscout.</li>
+  </ul>
+
+  <h2>The token</h2>
+  <p>$REKT is launched on Pons v2 with a 1.5% creator tax. The contract address appears in the amber strip at the top of every page the moment it exists; until then, anything claiming to be $REKT is not ours.</p>
+
+  <h2>Code</h2>
+  <p>Open source, MIT. Node 22, SQLite, one process for the watcher and one for the site. The board is a split-flap; the sound is one synthesised click and stays off until you press the speaker.</p>
+  <p>Thank you for your liquidity.</p>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module">import { initChrome, paintRecords } from "/static/app/common.js"; initChrome(); paintRecords();</script>
+</body>
+</html>

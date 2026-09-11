@@ -1,0 +1,30 @@
+{
+  "name": "rekt",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "rekt.report, the loss ledger of Robinhood Chain.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "backfill": "node --no-warnings src/cli/backfill.ts",
+    "names": "node --no-warnings src/cli/names.ts",
+    "fold": "node --no-warnings src/cli/fold.ts",
+    "pools": "node --no-warnings src/cli/pools.ts",
+    "watch": "node --no-warnings src/watch.ts",
+    "api": "node --no-warnings src/api.ts",
+    "card": "node --no-warnings src/cli/card.ts",
+    "fonts": "node --no-warnings src/cli/fonts.ts",
+    "doctor": "node --no-warnings src/cli/doctor.ts",
+    "test": "node --no-warnings --test \"src/**/*.test.ts\"",
+    "stats": "node --no-warnings src/cli/stats.ts",
+    "brand": "node --no-warnings src/cli/brand.ts"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "satori": "^0.12.2",
+    "viem": "^2.56.3"
+  }
+}

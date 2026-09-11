@@ -1,0 +1,342 @@
+{
+  "rows": [
+    {
+      "token": "0x2917a4f9fc2f245509a22343dfd06ab128417c3e",
+      "symbol": "TENDYBEAR",
+      "name": "Tendy Bear",
+      "flight": "RK-4182",
+      "deployer": "0xf21754cd84001cabc0f0b9202c0847fb61c774c3",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004940,
+      "status": "boarding",
+      "statusTs": 1789004940
+    },
+    {
+      "token": "0xfc574cea3241d6085b07f2bcd829e386f9f601a7",
+      "symbol": "COPIUMX",
+      "name": "Copium X",
+      "flight": "RK-4181",
+      "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004845,
+      "status": "cancelled",
+      "statusTs": 1789004886
+    },
+    {
+      "token": "0x2109bd283123430800020c0803a473044a445313",
+      "symbol": "SPYCAT",
+      "name": "Spy Cat",
+      "flight": "RK-4180",
+      "deployer": "0x868578d450f0de17c598cc16e02d07ec2a1854f6",
+      "pair": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+      "pairSymbol": "NVDA",
+      "ts": 1789004750,
+      "status": "boarding",
+      "statusTs": 1789004750
+    },
+    {
+      "token": "0xdf18f848d567d459ba41b89242c531f0fb719691",
+      "symbol": "MOONHOOD",
+      "name": "Moon Hood",
+      "flight": "RK-4179",
+      "deployer": "0x9fc49091a9b975e6b9847743cd55926a0c524258",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004655,
+      "status": "boarding",
+      "statusTs": 1789004655
+    },
+    {
+      "token": "0x78b7964bc97d5e596f8728011e9ab8f72a079644",
+      "symbol": "PONZI3",
+      "name": "Ponzi 3",
+      "flight": "RK-4178",
+      "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004560,
+      "status": "cancelled",
+      "statusTs": 1789004594
+    },
+    {
+      "token": "0x4b5b2c4de052464091af3cc2b5f374e3dbf2bf54",
+      "symbol": "DUCKLING",
+      "name": "Duckling",
+      "flight": "RK-4177",
+      "deployer": "0xf00b145dfa0ca9d70dd0fd6a1e27002a2c45f0f6",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004465,
+      "status": "departed",
+      "statusTs": 1789005105
+    },
+    {
+      "token": "0xb0131ddbf845dc14755872736233ce654eb98524",
+      "symbol": "GREENCANDLE",
+      "name": "Green Candle",
+      "flight": "RK-4176",
+      "deployer": "0xd76c17af7f56648abab60e810dfa7e0b496fa74c",
+      "pair": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+      "pairSymbol": "USDG",
+      "ts": 1789004370,
+      "status": "boarding",
+      "statusTs": 1789004370
+    },
+    {
+      "token": "0xde820f9040204490e715005b8871e85b1a7ffd77",
+      "symbol": "SIRLOIN",
+      "name": "Sirloin",
+      "flight": "RK-4175",
+      "deployer": "0x0e0c74ef7b0248461c692caff8118102f4eae635",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004275,
+      "status": "departed",
+      "statusTs": 1789004890
+    },
+    {
+      "token": "0x8aebe9f64f36ac38653b484d9ecf9501a1c7d2df",
+      "symbol": "NVIDIADOG",
+      "name": "Nvidia Dog",
+      "flight": "RK-4174",
+      "deployer": "0x840f8377c9586610fc0b9b664d826fedaf1597a1",
+      "pair": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+      "pairSymbol": "NVDA",
+      "ts": 1789004180,
+      "status": "arrived",
+      "statusTs": 1789004298
+    },
+    {
+      "token": "0x85270405126a8b07c697cc52f54f2571777f9216",
+      "symbol": "HOODCAT",
+      "name": "Hood Cat",
+      "flight": "RK-4173",
+      "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789004085,
+      "status": "cancelled",
+      "statusTs": 1789004114
+    },
+    {
+      "token": "0xb7434e55fcfcb771d217463717654d082e40d3d6",
+      "symbol": "PONZI2",
+      "name": "Ponzi 2",
+      "flight": "RK-4172",
+      "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789003990,
+      "status": "cancelled",
+      "statusTs": 1789004024
+    },
+    {
+      "token": "0xfe533b264a79948ff7dd6189e7fa371e2c6a9bf1",
+      "symbol": "MOONHOOD1",
+      "name": "Moon Hood",
+      "flight": "RK-4171",
+      "deployer": "0xce5d231f44845eb85a8cd2c17a3f56aeb859a08c",
+      "pair": "0x0000000000000000000000000000000000000000",
+      "pairSymbol": "ETH",
+      "ts": 1789003895,
+      "status": "departed",
+      "statusTs": 1789004595
+    }
+  ],
+  "losses": [
+    {
+      "kind": "loss",
+      "wallet": "0xadaa9aaffa460ccd0c404bb5a3168f6c96dbeca5",
+      "token": "0x78b7964bc97d5e596f8728011e9ab8f72a079644",
+      "symbol": "PONZI3",
+      "lossUsd": 212.4,
+      "minutesSinceBuy": 4.1,
+      "ts": 1789004980
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x01f1e902be712672ee887a158164e67aef1036b3",
+      "token": "0xfc574cea3241d6085b07f2bcd829e386f9f601a7",
+      "symbol": "COPIUMX",
+      "lossUsd": 41.9,
+      "minutesSinceBuy": 1.2,
+      "ts": 1789004933
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xd1ce20f12723c8db8a76546284079e8e5e4bb34e",
+      "token": "0x78b7964bc97d5e596f8728011e9ab8f72a079644",
+      "symbol": "PONZI3",
+      "lossUsd": 1305,
+      "minutesSinceBuy": 3.7,
+      "ts": 1789004886
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xace1b4b6958bcc1fa1fb1aa55a4132ff5f6c2f41",
+      "token": "0x4b5b2c4de052464091af3cc2b5f374e3dbf2bf54",
+      "symbol": "DUCKLING",
+      "lossUsd": 88.2,
+      "minutesSinceBuy": 22.5,
+      "ts": 1789004839
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x865cd9f6826609ce79c2a6a9328401eda868a71b",
+      "token": "0x85270405126a8b07c697cc52f54f2571777f9216",
+      "symbol": "HOODCAT",
+      "lossUsd": 27.5,
+      "minutesSinceBuy": 0.6,
+      "ts": 1789004792
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xf6ab09ddb2a87934c570c67254b0b7c387ed6a97",
+      "token": "0xde820f9040204490e715005b8871e85b1a7ffd77",
+      "symbol": "SIRLOIN",
+      "lossUsd": 640.1,
+      "minutesSinceBuy": 11,
+      "ts": 1789004745
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x3f9abf816809a4d8aa98ed09fe848bc31b08c1e4",
+      "token": "0xb7434e55fcfcb771d217463717654d082e40d3d6",
+      "symbol": "PONZI2",
+      "lossUsd": 1940,
+      "minutesSinceBuy": 0.6,
+      "ts": 1789004698
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xa7a5294e51589491ac7aa89cac431defee56c9b7",
+      "token": "0xfc574cea3241d6085b07f2bcd829e386f9f601a7",
+      "symbol": "COPIUMX",
+      "lossUsd": 355.6,
+      "minutesSinceBuy": 2.2,
+      "ts": 1789004651
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x2eb95b384bb687a1001ee1789f4de9657e2bf759",
+      "token": "0x4b5b2c4de052464091af3cc2b5f374e3dbf2bf54",
+      "symbol": "DUCKLING",
+      "lossUsd": 24,
+      "minutesSinceBuy": 40.3,
+      "ts": 1789004604
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x2d63d805ff583483daec6fd5d3e8b2b8a675bdc0",
+      "token": "0x85270405126a8b07c697cc52f54f2571777f9216",
+      "symbol": "HOODCAT",
+      "lossUsd": 3105.5,
+      "minutesSinceBuy": 0.5,
+      "ts": 1789004557
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x22ca2282c55504eeab1cb287670e2e152d8df472",
+      "token": "0xb7434e55fcfcb771d217463717654d082e40d3d6",
+      "symbol": "PONZI2",
+      "lossUsd": 96.3,
+      "minutesSinceBuy": 1.9,
+      "ts": 1789004510
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x239c92b19ebcfd296b00d2ca3bedb889d4c09c72",
+      "token": "0xde820f9040204490e715005b8871e85b1a7ffd77",
+      "symbol": "SIRLOIN",
+      "lossUsd": 58.7,
+      "minutesSinceBuy": 8.4,
+      "ts": 1789004463
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xf0bbedb1ad28cfe6dee4b4d3149006f45c9762fd",
+      "token": "0xb0131ddbf845dc14755872736233ce654eb98524",
+      "symbol": "GREENCANDLE",
+      "lossUsd": 410,
+      "minutesSinceBuy": 5.5,
+      "ts": 1789004416
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xb0234b18d1df6c5dbcec36960eef387328475bfb",
+      "token": "0x78b7964bc97d5e596f8728011e9ab8f72a079644",
+      "symbol": "PONZI3",
+      "lossUsd": 22.1,
+      "minutesSinceBuy": 6,
+      "ts": 1789004369
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x40831bbf066be81f556a65fe42495df5fa3c38a8",
+      "token": "0xdf18f848d567d459ba41b89242c531f0fb719691",
+      "symbol": "MOONHOOD",
+      "lossUsd": 130.9,
+      "minutesSinceBuy": 2.8,
+      "ts": 1789004322
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x9b1c25c7914d0efc3d9cacd926cbca87d7b9489d",
+      "token": "0xb7434e55fcfcb771d217463717654d082e40d3d6",
+      "symbol": "PONZI2",
+      "lossUsd": 77.7,
+      "minutesSinceBuy": 1.1,
+      "ts": 1789004275
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xb6e8a4a14632bf2b890b8acc56bbe746375a139c",
+      "token": "0xfc574cea3241d6085b07f2bcd829e386f9f601a7",
+      "symbol": "COPIUMX",
+      "lossUsd": 2210.3,
+      "minutesSinceBuy": 1.4,
+      "ts": 1789004228
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x85a0844c095d09cc8470f236aaa294b288602292",
+      "token": "0x4b5b2c4de052464091af3cc2b5f374e3dbf2bf54",
+      "symbol": "DUCKLING",
+      "lossUsd": 33.3,
+      "minutesSinceBuy": 61,
+      "ts": 1789004181
+    },
+    {
+      "kind": "loss",
+      "wallet": "0xbc00386f1aa9b50157767293477d7435c77714ac",
+      "token": "0xde820f9040204490e715005b8871e85b1a7ffd77",
+      "symbol": "SIRLOIN",
+      "lossUsd": 505,
+      "minutesSinceBuy": 9.9,
+      "ts": 1789004134
+    },
+    {
+      "kind": "loss",
+      "wallet": "0x462bac6b3f5421c5b0d7ae3918003319ff00c386",
+      "token": "0x85270405126a8b07c697cc52f54f2571777f9216",
+      "symbol": "HOODCAT",
+      "lossUsd": 66.6,
+      "minutesSinceBuy": 0.9,
+      "ts": 1789004087
+    }
+  ],
+  "counters": {
+    "kind": "counters",
+    "lostTodayUsd": 1284410.22,
+    "daysSinceCancelled": 0,
+    "turbulence": {
+      "score": 84,
+      "label": "Severe"
+    },
+    "ts": 1789005000
+  },
+  "ca": "0x676d71b15088c24cdb494a51920cd15cce7ce105",
+  "seq": 90417
+}

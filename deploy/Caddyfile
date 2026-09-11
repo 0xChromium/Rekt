@@ -1,0 +1,52 @@
+# rekt.report behind Caddy. TLS from Let's Encrypt, everything proxied to rekt-api on 127.0.0.1:8787.
+# Install: sudo cp deploy/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+
+{$REKT_HOST:rekt.report} {
+	encode zstd gzip
+
+	# The API sets its own Cache-Control on every response; Caddy only adds transport headers.
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+		# Off the search engines until the coin exists. Drop both lines on launch day.
+		X-Robots-Tag "noindex, nofollow"
+	}
+
+	respond /robots.txt 200 {
+		body "User-agent: *
+Disallow: /
+"
+	}
+
+	# SSE: no buffering, no timeouts. Caddy streams responses by default; flush_interval -1 makes it explicit.
+	@board path /api/board
+	reverse_proxy @board 127.0.0.1:8787 {
+		flush_interval -1
+		transport http {
+			read_timeout 0
+			write_timeout 0
+		}
+	}
+
+	# X-Forwarded-For and X-Forwarded-Proto are set by Caddy itself; the API reads the first value
+	# of the former for its rate limit.
+	reverse_proxy 127.0.0.1:8787
+
+	# To the journal, not to a file: the packaged unit runs Caddy under ProtectSystem=full, where
+	# /var/log is not writable however the directory is owned, and an access log on a 40 GB disk we
+	# are already watching is one more thing to rotate. journalctl -u caddy -f reads it.
+	log {
+		output stderr
+		format json
+	}
+}
+
+# Before the domain: REKT_HOST is set to rekt.<ip>.nip.io in /etc/systemd/system/caddy.service.d/,
+# which resolves to this machine on its own and takes a real certificate. Swapping in the domain is
+# this one variable, plus PUBLIC_URL in .env, plus uncommenting the redirect below.
+#
+# www.rekt.report {
+# 	redir https://rekt.report{uri} permanent
+# }

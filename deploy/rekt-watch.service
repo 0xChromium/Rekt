@@ -1,0 +1,40 @@
+[Unit]
+Description=rekt-watch: factory watcher, trade fold, token state and losses for rekt.report
+Documentation=https://github.com/0xChromium/Rekt
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Behind the site. The watcher falling a few seconds further behind is invisible; the site
+# freezing is not. It catches up on its own whenever the API is idle, which is most of the time.
+Nice=5
+CPUWeight=200
+Type=simple
+User=rekt
+Group=rekt
+WorkingDirectory=/home/rekt/rekt
+EnvironmentFile=/home/rekt/rekt/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node --no-warnings src/watch.ts
+# The fold checkpoints every chunk, so a restart resumes from meta.fold_to_block and loses nothing.
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rekt-watch
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/rekt/rekt/data
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airlines · REKT</title>
+<meta name="description" content="The largest realized losses on Pons, today and all time, and the airlines with the most cancellations.">
+<meta property="og:title" content="Airlines · REKT">
+<meta property="og:description" content="The largest realized losses on Pons, today and all time, and the airlines with the most cancellations.">
+<meta property="og:image" content="https://rekt.report/og.png">
+<meta property="og:url" content="https://rekt.report/airlines">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rekt.report/og.png">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body data-board="airlines">
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Leaderboards</span>
+  <span class="sub">REKT · largest losses · most cancellations</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main class="page">
+  <section id="hallSection">
+    <div class="section-head">
+      <h1 style="margin:0">Hall of Rekt</h1>
+      <span class="k" id="hallWindow">Top 10 today</span>
+      <div class="toggle" role="group" aria-label="Window">
+        <button type="button" data-window="24h" aria-pressed="true">24h</button>
+        <button type="button" data-window="all" aria-pressed="false">All time</button>
+      </div>
+    </div>
+    <p class="lede">The passengers who contributed the most. Realized losses only, at the price of the day, curve trades for now. Click a passenger for their pass.</p>
+    <div class="table-wrap"><table class="lb" id="hall">
+      <thead><tr><th class="n">#</th><th>Passenger</th><th class="r">Lost</th><th class="r">Flights</th><th>Worst flight</th></tr></thead>
+      <tbody><tr class="empty"><td colspan="5">Boarding.</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section id="airlinesSection" style="margin-top:44px">
+    <div class="section-head">
+      <h1 style="margin:0">Airlines</h1>
+      <span class="k">Top 10 deployers · all time</span>
+    </div>
+    <p class="lede">Deployers ranked by the passengers who lost money on their flights. "412 flights · 98% cancelled" is a record, not a recommendation.</p>
+    <div class="table-wrap"><table class="lb" id="airlines">
+      <thead><tr><th class="n">#</th><th>Airline</th><th class="r">Flights</th><th class="r">Cancelled</th><th class="r">Passengers lost</th><th class="r">Total lost</th></tr></thead>
+      <tbody><tr class="empty"><td colspan="6">Boarding.</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <p class="notice" style="margin-top:30px">Dollar figures are approximate, converted with the daily price book. Addresses are wallets, not people.</p>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module" src="/static/app/leaderboards.js"></script>
+</body>
+</html>

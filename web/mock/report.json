@@ -1,0 +1,60 @@
+{
+  "address": "0x3f9abf816809a4d8aa98ed09fe848bc31b08c1e4",
+  "since": 1788393600,
+  "netRealizedUsd": -4212.09,
+  "realizedUsd": -5310.44,
+  "bagsUsd": 61.2,
+  "bagsHeld": 12,
+  "volumeUsd": 18940.55,
+  "tokensTraded": 37,
+  "buys": 58,
+  "sells": 41,
+  "firstTs": 1788513127,
+  "lastTs": 1789004026,
+  "rank": 290141,
+  "ofWallets": 314736,
+  "percentile": 7.81,
+  "className": "Rug Magnet",
+  "worst": {
+    "token": "0xb7434e55fcfcb771d217463717654d082e40d3d6",
+    "symbol": "PONZI2",
+    "lossUsd": 1940,
+    "boughtTs": 1789003992,
+    "dead": true,
+    "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+    "deployerRecord": {
+      "launches": 412,
+      "deadShare": 0.98,
+      "losers": 2306
+    }
+  },
+  "best": {
+    "token": "0x8aebe9f64f36ac38653b484d9ecf9501a1c7d2df",
+    "symbol": "NVIDIADOG",
+    "gainUsd": 1098.35
+  },
+  "badges": [
+    {
+      "id": "fastest_rekt",
+      "label": "Fastest Rekt",
+      "detail": "Closed SIRLOIN at a loss 41 seconds after boarding."
+    },
+    {
+      "id": "serial_buyer",
+      "label": "Serial Buyer",
+      "detail": "Three flights named PONZI. All cancelled."
+    },
+    {
+      "id": "diamond_coffin",
+      "label": "Diamond Coffin",
+      "detail": "Still holding DUCKLING. Departed 6 hours ago."
+    }
+  ],
+  "notAlone": {
+    "wallets": 212,
+    "lostUsd": 48120.7
+  },
+  "unpricedPositions": 3,
+  "ca": "0x676d71b15088c24cdb494a51920cd15cce7ce105",
+  "outsideRecordPositions": 2
+}

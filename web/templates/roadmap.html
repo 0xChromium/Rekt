@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap · REKT</title>
+<meta name="description" content="What ships next at rekt.report and what is already live. Statuses change only when the file changes.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REKT · Terminal 67">
+<meta property="og:title" content="Roadmap · REKT">
+<meta property="og:description" content="What ships next at rekt.report and what is already live.">
+<meta property="og:image" content="{{ogImage}}">
+<meta property="og:url" content="{{url}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{url}}">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Roadmap</span>
+  <span class="sub">REKT · scheduled departures</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main class="page">
+  <div class="k">Scheduled</div>
+  <h1>What ships next</h1>
+  <p class="lede">The same list the team works from, in order. A status changes here only when it changes in the file, so this page never promises what the repository does not.</p>
+
+  <div id="roadmap">{{content}}</div>
+
+  <h2>What the coin buys</h2>
+  <p class="narrow">$REKT buys a share of the fees through the compensation desk, and nothing else. Half of every creator fee the token earns goes to holders who stake, on-chain, from the block the splitter contract becomes the fee recipient; what the token earns before that block pays for building it. There are no tiers, no paid features and no early access; the site stays free for every passenger, holder or not.</p>
+  <div class="actions">
+    <a class="btn dark" href="/desk" data-href="/desk">Compensation desk</a>
+    <a class="btn ghost" href="/about" data-href="/about">About</a>
+  </div>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module" src="/static/app/roadmap.js"></script>
+</body>
+</html>

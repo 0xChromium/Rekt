@@ -1,0 +1,44 @@
+[Unit]
+Description=rekt-api: HTTP, SSE board, cards and shells for rekt.report
+Documentation=https://github.com/0xChromium/Rekt
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# This machine has two cores and three things that want them: this process, the watcher folding
+# the chain, and this process's own query worker. When all three run the kernel splits the cores
+# evenly and the thread answering visitors gets a third of one, which shows up as a page that
+# hangs for tens of seconds with nothing in any log. Serving people comes first.
+Nice=-5
+CPUWeight=1000
+Type=simple
+User=rekt
+Group=rekt
+WorkingDirectory=/home/rekt/rekt
+EnvironmentFile=/home/rekt/rekt/.env
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+ExecStart=/usr/bin/node --no-warnings src/api.ts
+Restart=always
+RestartSec=3
+TimeoutStopSec=15
+KillSignal=SIGTERM
+
+# Logs: journalctl -u rekt-api -f
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rekt-api
+
+# Hardening. The API only reads the database and writes PNGs under data/cards.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/rekt/rekt/data
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

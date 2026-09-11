@@ -1,0 +1,16 @@
+{
+  "recipient": "0x6f7fc61862c49b8b529ffaabba421f73852adefb",
+  "recipientKind": "wallet",
+  "accruedWei": "412000000000000000",
+  "accruedUsd": 1018.46,
+  "walletWei": "1250000000000000000",
+  "holdersHalfUsd": 0,
+  "contracts": {
+    "splitter": null,
+    "staking": null,
+    "status": "in progress"
+  },
+  "ledger": [],
+  "ca": "0x676d71b15088c24cdb494a51920cd15cce7ce105",
+  "sharing": false
+}

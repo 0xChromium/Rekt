@@ -1,0 +1,15 @@
+node_modules/
+dist/
+out/
+.env
+.env.*
+!.env.example
+data/*.db
+data/*.db-*
+*.log
+.DS_Store
+.cache/
+data/cards/
+data/snapshots/
+data/logs/
+.claude/

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="R">
+  <rect x="0" y="0" width="64" height="64" rx="8" fill="#1B1F24"/>
+  <text x="32" y="50" font-family="Barlow Condensed, Arial Narrow, Impact, sans-serif" font-weight="800" font-size="52" fill="#F5B400" text-anchor="middle">R</text>
+  <rect x="0" y="31" width="64" height="2" fill="#000" fill-opacity="0.8"/>
+</svg>

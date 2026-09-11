@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REKT · Terminal 67 · Departures</title>
+<meta name="description" content="67% of Robinhood Chain traders lost money. Find out how much you contributed. A live departures board for every Pons flight to zero, and your boarding pass.">
+<meta property="og:title" content="REKT · Terminal 67">
+<meta property="og:description" content="67% of Robinhood Chain traders lost money. Find out how much you contributed.">
+<meta property="og:image" content="https://rekt.report/og.png">
+<meta property="og:url" content="https://rekt.report/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rekt.report/og.png">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign" role="banner"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Departures</span>
+  <span class="sub">REKT · Robinhood Chain · all flights to zero</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main>
+  <div class="board-wrap">
+    <div class="board" id="board" aria-live="polite" aria-label="Departures board">
+      <div class="row head"><span class="c">Time</span><span class="c">Flight</span><span class="c">Token</span><span class="c">Destination</span><span class="c">Gate</span><span class="c">Status</span></div>
+      <div class="row empty" data-slot="0"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="1"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="2"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="3"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="4"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="5"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="6"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="7"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="8"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="9"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="10"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+      <div class="row empty" data-slot="11"><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c">· · ·</span><span class="c status">· · ·</span></div>
+    </div>
+  </div>
+  <div class="board-tools">
+    <span class="live" id="live"><i aria-hidden="true"></i><span>connecting</span></span>
+    <button type="button" id="soundToggle" aria-pressed="false">Sound: off</button>
+  </div>
+
+  <div class="tape" id="tape" aria-label="Passenger tape"><div class="in">
+    <span class="lbl">Passengers</span>
+    <ol><li class="none">Waiting for the first passenger of the day.</li></ol>
+  </div></div>
+
+  <div class="below">
+    <div class="lookup">
+      <div class="k">Passenger lookup</div>
+      <h1>67% of Robinhood Chain traders lost money. Find out how much you contributed.</h1>
+      <p>Paste a wallet. We print your boarding pass: every Pons flight you took, where it landed, and who was flying the plane.</p>
+      <form class="form lookup" action="/r/" autocomplete="off">
+        <input type="text" name="address" placeholder="0x passenger address" spellcheck="false" inputmode="text" pattern="0x[0-9a-fA-F]{40}" aria-label="Passenger address">
+        <button type="submit">Print boarding pass</button>
+      </form>
+      <div class="form-err" aria-live="polite"></div>
+    </div>
+    <div class="panels">
+      <div class="panel"><span>Lost today</span><b id="cLost">—</b><i>and climbing</i></div>
+      <div class="panel"><span>Days since last cancellation</span><b id="cDays">0</b><i>rug</i></div>
+      <div class="panel"><span><a href="/turbulence" data-href="/turbulence">Turbulence index</a></span><b id="cTurb">—</b><i id="cTurbLabel">reading</i></div>
+    </div>
+  </div>
+
+  <section class="block" id="boards"><div class="in">
+    <div class="two">
+      <div>
+        <div class="section-head"><h2>Hall of Rekt</h2><span class="k">Top 10 today</span></div>
+        <div class="table-wrap"><table class="lb" id="hall">
+          <thead><tr><th class="n">#</th><th>Passenger</th><th class="r">Lost</th><th class="r">Flights</th><th>Worst</th></tr></thead>
+          <tbody><tr class="empty"><td colspan="5">Boarding.</td></tr></tbody>
+        </table></div>
+        <p style="margin-top:10px"><a href="/hall" data-href="/hall">All time and today</a></p>
+      </div>
+      <div>
+        <div class="section-head"><h2>Airlines</h2><span class="k">Top 10 deployers</span></div>
+        <div class="table-wrap"><table class="lb" id="airlines">
+          <thead><tr><th class="n">#</th><th>Airline</th><th class="r">Flights</th><th class="r">Cancelled</th><th class="r">Passengers lost</th><th class="r">Total</th></tr></thead>
+          <tbody><tr class="empty"><td colspan="6">Boarding.</td></tr></tbody>
+        </table></div>
+        <p style="margin-top:10px"><a href="/airlines" data-href="/airlines">Full record</a></p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="block" id="how"><div class="in">
+    <div class="section-head"><h2>How it works</h2></div>
+    <div class="three">
+      <div class="step"><div class="k">1 · Boarding</div><p>Every token launched on Pons v2 is a flight. We read every buy and sell on its curve, chain-wide, as it happens.</p></div>
+      <div class="step"><div class="k">2 · The flight</div><p>Each wallet's trades fold into a position per token. What you sold for, less what you paid for what you sold, is your realized result, in dollars at the price of the day.</p></div>
+      <div class="step"><div class="k">3 · The pass</div><p>Your pass sums it up: net result, rank among passengers with three or more trades, worst flight and who cancelled it. Destination: zero. On time.</p></div>
+    </div>
+  </div></section>
+
+  <section class="block" id="promise"><div class="in">
+    <div class="section-head"><h2>Compensation desk</h2><span class="k">open</span></div>
+    <div class="promise">
+      <p>Half of every creator fee $REKT earns goes to holders who stake, on-chain, from the block the splitter contract becomes the fee recipient.</p>
+      <p>Until then the fee wallet is the recipient and what the token earns pays for building it. The desk shows the balance either way, and says which of the two it is. <a href="/desk" data-href="/desk">See the desk</a>.</p>
+    </div>
+  </div></section>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module" src="/static/app/landing.js"></script>
+</body>
+</html>

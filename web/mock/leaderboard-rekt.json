@@ -1,0 +1,62 @@
+[
+  {
+    "wallet": "0x8d869d0192301d2bdafe89c1358abeae0c0c0111",
+    "lossUsd": 31240.5,
+    "tokens": 14,
+    "worstSymbol": "HOODCAT"
+  },
+  {
+    "wallet": "0x9eec8b6aae38dd4769f3052428fd0ce1329e56c1",
+    "lossUsd": 18902,
+    "tokens": 6,
+    "worstSymbol": "COPIUMX"
+  },
+  {
+    "wallet": "0xbb4e0719bf4f4412930cc7e8c8b377299e809f1b",
+    "lossUsd": 12455.75,
+    "tokens": 22,
+    "worstSymbol": "PONZI3"
+  },
+  {
+    "wallet": "0xcfbe1c90b96aff72971b06dcdf553a8e2356776e",
+    "lossUsd": 9870.1,
+    "tokens": 3,
+    "worstSymbol": "SIRLOIN"
+  },
+  {
+    "wallet": "0x842943e0073ab3fcd587e0cc22d2a4a59abbf30d",
+    "lossUsd": 8120,
+    "tokens": 9,
+    "worstSymbol": "DUCKLING"
+  },
+  {
+    "wallet": "0x786c1cc2fb302bf6e1b074f71757e4ebbd526704",
+    "lossUsd": 6644.4,
+    "tokens": 11,
+    "worstSymbol": "PONZI2"
+  },
+  {
+    "wallet": "0x2d5107782b6a364533f452ceb382a641ccba27ae",
+    "lossUsd": 5301.9,
+    "tokens": 2,
+    "worstSymbol": "GREENCANDLE"
+  },
+  {
+    "wallet": "0x79d5b23196831f93571453f58ef8ec1859aa7cf1",
+    "lossUsd": 4980,
+    "tokens": 17,
+    "worstSymbol": "COPIUMX"
+  },
+  {
+    "wallet": "0x3f9abf816809a4d8aa98ed09fe848bc31b08c1e4",
+    "lossUsd": 4212.09,
+    "tokens": 37,
+    "worstSymbol": "PONZI2"
+  },
+  {
+    "wallet": "0x0404399ae2ad1872b706750e0cb807d49b7bb324",
+    "lossUsd": 3990.3,
+    "tokens": 5,
+    "worstSymbol": "MOONHOOD"
+  }
+]

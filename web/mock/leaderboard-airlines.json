@@ -1,0 +1,72 @@
+[
+  {
+    "deployer": "0x7d07ae38b93d8054d84aac37039c71ad114a86b2",
+    "launches": 412,
+    "deadShare": 0.98,
+    "losers": 2306,
+    "lostUsd": 312440
+  },
+  {
+    "deployer": "0xd60493214db3a909114c8a636e6ed884494c1246",
+    "launches": 188,
+    "deadShare": 0.94,
+    "losers": 1102,
+    "lostUsd": 141200.5
+  },
+  {
+    "deployer": "0xa516807238530441c6734d19cb25125ba675cbf0",
+    "launches": 96,
+    "deadShare": 0.91,
+    "losers": 640,
+    "lostUsd": 88310
+  },
+  {
+    "deployer": "0xdbe9a0723a85b7d1db3a3eee97c339d9050cdb7f",
+    "launches": 71,
+    "deadShare": 0.97,
+    "losers": 512,
+    "lostUsd": 61005.25
+  },
+  {
+    "deployer": "0x0416ab26aa62cf9943ef50af960bc98a31c214cc",
+    "launches": 64,
+    "deadShare": 0.86,
+    "losers": 430,
+    "lostUsd": 44900
+  },
+  {
+    "deployer": "0x56d269c55e688eae751863d5ad6569d43037e2cc",
+    "launches": 40,
+    "deadShare": 0.9,
+    "losers": 298,
+    "lostUsd": 31220.8
+  },
+  {
+    "deployer": "0x327803a1a22d458269a14277a0a9b68e1fdc1a37",
+    "launches": 35,
+    "deadShare": 0.71,
+    "losers": 260,
+    "lostUsd": 28750
+  },
+  {
+    "deployer": "0xfaec0b5b4b9070c105a20b9a3505b91d5f4d862f",
+    "launches": 29,
+    "deadShare": 0.93,
+    "losers": 201,
+    "lostUsd": 19980.4
+  },
+  {
+    "deployer": "0x0a27680b8f68f05e95e1d875ca1ee68dacbd8bf9",
+    "launches": 22,
+    "deadShare": 0.82,
+    "losers": 155,
+    "lostUsd": 12400
+  },
+  {
+    "deployer": "0xdc445ba46cb292dba2fb3de115b94ca4079b309d",
+    "launches": 18,
+    "deadShare": 0.61,
+    "losers": 97,
+    "lostUsd": 8120.6
+  }
+]

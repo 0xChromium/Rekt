@@ -1,0 +1,27 @@
+/* REKT · Terminal 67 · design tokens.
+   Single-theme by choice: the board is dark, the boarding pass is paper. Paint every surface explicitly. */
+:root {
+  --rk-black: #0F1113;
+  --rk-tile: #1B1F24;
+  --rk-amber: #F5B400;
+  --rk-paper: #F4F4F2;
+  --rk-paper-dim: #EDEDEA;
+  --rk-blue: #1E4DD8;
+  --rk-red: #E0322B;
+  --rk-green: #3DDC84;
+  --rk-grey: #9A9A96;
+  --rk-text-dim: #D9D9D5;
+  --rk-ink: #111111;
+  --rk-ink-dim: #6B6B68;
+  --rk-rule: #2A2F36;
+  --rk-dash: #B9B9B4;
+
+  --rk-font-board: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --rk-font-sign: "Barlow Semi Condensed", Arial, sans-serif;
+  --rk-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --rk-flip: 360ms; /* one split-flap turn */
+}
+/* Fonts:
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+   Numbers: font-variant-numeric: tabular-nums; everywhere digits line up. */

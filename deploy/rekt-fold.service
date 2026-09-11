@@ -1,0 +1,28 @@
+[Unit]
+Description=rekt-fold: oneshot backfill of launches and the seven-day trade window
+Documentation=https://github.com/0xChromium/Rekt
+After=network-online.target
+Wants=network-online.target
+# Both move meta.fold_to_block; the watcher starts from the cursor this leaves behind.
+Conflicts=rekt-watch.service
+
+[Service]
+Type=oneshot
+User=rekt
+Group=rekt
+WorkingDirectory=/home/rekt/rekt
+EnvironmentFile=/home/rekt/rekt/.env
+ExecStart=/usr/bin/node --no-warnings src/cli/backfill.ts --hours 168
+ExecStart=/usr/bin/node --no-warnings src/cli/fold.ts --hours 168 --once
+# One to two hours on the official RPC for seven days; never killed by a timeout.
+TimeoutStartSec=infinity
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rekt-fold
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/rekt/rekt/data

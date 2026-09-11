@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turbulence index · REKT</title>
+<meta name="description" content="The turbulence index: how rough the last 24 hours were on Pons, and how it is computed.">
+<meta property="og:title" content="Turbulence index · REKT">
+<meta property="og:description" content="How rough the last 24 hours were on Pons, in one number.">
+<meta property="og:image" content="https://rekt.report/og.png">
+<meta property="og:url" content="https://rekt.report/turbulence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rekt.report/og.png">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="lag" class="lag" hidden></div>
+
+<header class="top">
+  <a class="logo" href="/" data-href="/"><img src="/static/logo.svg" alt="REKT" width="148" height="44"><span>Terminal 67</span></a>
+  <nav aria-label="Site">
+    <a href="/" data-href="/">Departures</a>
+    <a href="/hall" data-href="/hall">Hall of Rekt</a>
+    <a href="/airlines" data-href="/airlines">Airlines</a>
+    <a href="/turbulence" data-href="/turbulence">Turbulence</a>
+    <a href="/desk" data-href="/desk">Compensation desk</a>
+    <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+    <a href="/about" data-href="/about">About</a>
+  </nav>
+</header>
+
+<div class="sign"><div class="in">
+  <span class="t">Terminal 67</span><span class="arrow" aria-hidden="true">⇩</span><span class="dep">Turbulence</span>
+  <span class="sub">REKT · conditions, last 24 hours</span>
+  <span class="ca" data-ca>boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+</div></div>
+
+<main class="page narrow">
+  <div class="k">Turbulence index · rolling 24 hours</div>
+  <h1>Conditions</h1>
+  <div class="stats">
+    <div class="stat"><span>Index</span><b id="tScore">—</b><i id="tLabel">reading</i></div>
+    <div class="stat"><span>W · passengers negative</span><b id="tW">—</b><i>share of wallets that traded and ended down</i></div>
+    <div class="stat"><span>D · flights lost</span><b id="tD">—</b><i>share of launches departed or cancelled</i></div>
+  </div>
+
+  <h2>Method</h2>
+  <p>Over the last 24 hours, W is the share of wallets that traded on a Pons curve and ended the window with a negative realized result, and D is the share of tokens launched in the window that are departed or cancelled. The index is round(100 × (0.6 W + 0.4 D)), so passengers weigh more than flights. Labels: 0–20 Clear skies, 20–40 Light chop, 40–60 Moderate, 60–80 Severe, 80–100 Extreme.</p>
+  <p class="dim" style="font-size:13px">Version 1. A second version with loss intensity and the graduation rate is on the <a href="/roadmap" data-href="/roadmap">roadmap</a>.</p>
+</main>
+
+<footer class="foot"><div class="in">
+  <span class="ca" data-ca="short">boarding soon · no CA yet · anything claiming to be $REKT is not ours</span>
+  <a href="/about" data-href="/about">About</a>
+  <a href="/roadmap" data-href="/roadmap">Roadmap</a>
+  <a href="/desk" data-href="/desk">Compensation desk</a>
+  <a href="https://x.com/0xchromium" target="_blank" rel="noopener">X</a>
+  <a href="https://github.com/0xChromium/Rekt" target="_blank" rel="noopener">GitHub</a>
+  <span class="right">rekt.report · Thank you for your liquidity.</span>
+</div></footer>
+
+<script type="module">
+import { $, getJson, initChrome, pct } from "/static/app/common.js";
+initChrome();
+async function paint() {
+  try {
+    const t = await getJson("/api/index");
+    if (!t || t.error) { $("#tLabel").textContent = t?.hint || "the desk is not answering"; return; }
+    $("#tScore").textContent = String(t.score);
+    $("#tLabel").textContent = t.label;
+    $("#tW").textContent = pct(t.w);
+    $("#tD").textContent = pct(t.d);
+  } catch { $("#tLabel").textContent = "the desk is not answering"; }
+}
+paint();
+setInterval(paint, 60000);
+</script>
+</body>
+</html>
