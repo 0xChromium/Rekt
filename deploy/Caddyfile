@@ -10,13 +10,12 @@
 		X-Content-Type-Options "nosniff"
 		Referrer-Policy "strict-origin-when-cross-origin"
 		-Server
-		# Off the search engines until the coin exists. Drop both lines on launch day.
-		X-Robots-Tag "noindex, nofollow"
 	}
 
+	# Open to search engines since launch day.
 	respond /robots.txt 200 {
 		body "User-agent: *
-Disallow: /
+Allow: /
 "
 	}
 
